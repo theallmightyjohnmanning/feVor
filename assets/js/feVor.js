@@ -164,7 +164,6 @@ var feVor = feVor ||
 				if(feVor.validFields.length == Object.keys(container).length)
 				{
 					document.getElementById(form).submit();
-					return true;
 				}
 			});
 		});
@@ -208,18 +207,18 @@ feVor.utility =
 			if(typeof(string) === 'function')
 				string();
 			else
-				return;
+				return false;
 		},
 
 		contains: function(string, key)
 		{
-			if(this.isFunction(string))
-				return false;
-
-			if(string.indexOf(key) != -1)
-				return string;
-			else
-				return false;
+			if(feVor.utility.validation.isFunction(string) == false)
+			{
+				if(string.indexOf(key) != -1)
+					return string;
+				else
+					return false;
+			}
 		}
 	},
 
