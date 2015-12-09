@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>BS Active Validator</title>
+
+	<!-- Include Bootstrap -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+
+	<!-- Include Custom CSS -->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lt IE 9]>
+		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1>Select a form to demo</h1>
+			<hr>
+
+			<div class="row">
+				<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#registration-form-modal">Registration Form</button>
+			</div>
+
+			<!-- Registration Form Modal -->
+			<div class="modal fade" id="registration-form-modal" role="dialog" aria-labelledby="registration-form-modal-label">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title">Registration Form Example</h4>
+							<div class="modal-body">
+								<!-- Begin Form -->
+								<form id="registration-form" action="" method="post" autocomplete="off">
+									<div id="registration-email-group" class="form-group">
+										<label for="registration-email" class="sr-only">Enter Your Email Address</label>
+										<input id="registration-email" class="form-control" type="email" required="true" placeholder="Enter Your Email Address" />
+										<span id="registration-email-message" class="help-block"></span>
+									</div>
+									<div id="registration-confirm-email-group" class="form-group">
+										<label for="registration-confirm-email" class="sr-only">Confirm Your Email Address</label>
+										<input id="registration-confirm-email" class="form-control" type="email" required="true" placeholder="Confirm Your Email Address" />
+										<span id="registration-confirm-email-message" class="help-block"></span>
+									</div>
+							</div>
+							<div class="modal-footer">
+								<br>
+									<button class="pull-left btn btn-default" type="button" data-dismiss="modal">Close</button>
+									<input class="btn btn-success" type="submit" value="Register Now" />
+								</form>
+								<!-- End Form -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<!-- Load jQuery -->
+<script src="assets/js/jquery.js"></script>
+
+<!-- Load Bootstrap JS -->
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- Load BS Active Validator -->
+<script src="assets/js/feVor.js"></script>
+
+<!-- BS Active Validator In Use -->
+<script>
+	$(document).ready(function(e)
+	{
+		feVor.validate({
+
+			'registration-form': {
+
+				'registration-email': ['min:8', 'email'],
+				'registration-confirm-email': ['same:registration-email']
+			}
+		})
+	});
+</script>
+</html>
