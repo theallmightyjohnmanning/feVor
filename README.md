@@ -3,7 +3,7 @@
 feVor stands for `Front End Validator`. To use feVor, just include the file into your project and follow the format conventions.
 
 ### Quick Start
-	
+	```html
 	<!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -71,3 +71,4 @@ feVor stands for `Front End Validator`. To use feVor, just include the file into
 		});
 	</script>
 	</html>
+	```
